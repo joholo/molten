@@ -331,44 +331,32 @@ html {
   line-height: 10px;
 }
 .grid.rows.split10 > .content {
-  height: -webkit-calc(100% - 10px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 10px);
-  top: 10px;
+    top: 10px;
+    bottom: 0;
 }
 .grid.rows.split10.bottom > .bar {
-  margin-top: -10px;
-  top: 100%;
+  bottom: 0;
+  height: 10px;
 }
 .grid.rows.split10.bottom > .content {
-  height: -webkit-calc(100% - 10px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 10px);
   top: 0;
+  bottom: 10px;
 }
 .grid.rows.split20 > .bar {
   height: 20px;
   line-height: 20px;
 }
 .grid.rows.split20 > .content {
-  height: -webkit-calc(100% - 20px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 20px);
   top: 20px;
+  bottom: 0;
 }
 .grid.rows.split20.bottom > .bar {
-  margin-top: -20px;
-  top: 100%;
+  bottom: 0;
+  height: 20px;
 }
 .grid.rows.split20.bottom > .content {
-  height: -webkit-calc(100% - 20px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 20px);
   top: 0;
+  bottom: 20px;
 }
 .grid.rows.split30 > .bar {
   height: 30px;
@@ -379,15 +367,12 @@ html {
   bottom: 0;
 }
 .grid.rows.split30.bottom > .bar {
-  margin-top: -30px;
-  top: 100%;
+  bottom: 0;
+  height: 30px;
 }
 .grid.rows.split30.bottom > .content {
-  height: -webkit-calc(100% - 30px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 30px);
   top: 0;
+  bottom: 30px;
 }
 .grid.rows.split40 > .bar {
   height: 40px;
@@ -398,15 +383,12 @@ html {
   bottom: 0;
 }
 .grid.rows.split40.bottom > .bar {
-  margin-top: -40px;
-  top: 100%;
+  bottom: 0;
+  height: 40px;
 }
 .grid.rows.split40.bottom > .content {
-  height: -webkit-calc(100% - 40px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 40px);
   top: 0;
+  bottom: 40px;
 }
 .grid.rows.split50 > .bar {
   height: 50px;
@@ -417,15 +399,12 @@ html {
   bottom: 0;
 }
 .grid.rows.split50.bottom > .bar {
-  margin-top: -50px;
-  top: 100%;
+  bottom: 0;
+  height: 50px;
 }
 .grid.rows.split50.bottom > .content {
-  height: -webkit-calc(100% - 50px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 50px);
   top: 0;
+  bottom: 50px;
 }
 .grid.rows.split60 > .bar {
   height: 60px;
@@ -436,15 +415,12 @@ html {
   bottom: 0;
 }
 .grid.rows.split60.bottom > .bar {
-  margin-top: -60px;
-  top: 100%;
+  bottom: 0;
+  height: 60px;
 }
 .grid.rows.split60.bottom > .content {
-  height: -webkit-calc(100% - 60px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 60px);
   top: 0;
+  bottom: 60px;
 }
 .grid.rows.split70 > .bar {
   height: 70px;
@@ -455,15 +431,12 @@ html {
   bottom: 0;
 }
 .grid.rows.split70.bottom > .bar {
-  margin-top: -70px;
-  top: 100%;
+  bottom: 0;
+  height: 70px;
 }
 .grid.rows.split70.bottom > .content {
-  height: -webkit-calc(100% - 70px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 70px);
   top: 0;
+  bottom: 70px;
 }
 .grid.rows.split80 > .bar {
   height: 80px;
@@ -474,15 +447,12 @@ html {
   bottom: 0;
 }
 .grid.rows.split80.bottom > .bar {
-  margin-top: -80px;
-  top: 100%;
+  bottom: 0;
+  height: 80px;
 }
 .grid.rows.split80.bottom > .content {
-  height: -webkit-calc(100% - 80px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 80px);
   top: 0;
+  bottom: 80px;
 }
 .grid.rows.split90 > .bar {
   height: 90px;
@@ -493,15 +463,12 @@ html {
   bottom: 0;
 }
 .grid.rows.split90.bottom > .bar {
-  margin-top: -90px;
-  top: 100%;
+  bottom: 0;
+  height: 90px;
 }
 .grid.rows.split90.bottom > .content {
-  height: -webkit-calc(100% - 90px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 90px);
   top: 0;
+  bottom: 90px;
 }
 .grid.rows.split100 > .bar {
   height: 100px;
@@ -528,37 +495,28 @@ html {
   bottom: 0;
 }
 .grid.rows.split200.bottom > .bar {
-  margin-top: -200px;
-  top: 100%;
+  bottom: 0;
+  height: 200px;
 }
 .grid.rows.split200.bottom > .content {
-  height: -webkit-calc(100% - 200px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 200px);
   top: 0;
+  bottom: 200px;
 }
 .grid.rows.split300 > .bar {
   height: 300px;
   line-height: 300px;
 }
 .grid.rows.split300 > .content {
-  height: -webkit-calc(100% - 300px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 300px);
   top: 300px;
+  bottom: 0;
 }
 .grid.rows.split300.bottom > .bar {
-  margin-top: -300px;
-  top: 100%;
+  bottom: 0;
+  height: 300px;
 }
 .grid.rows.split300.bottom > .content {
-  height: -webkit-calc(100% - 300px);
-  /* hack for safari 6 */
-
-  height: calc(100% - 300px);
   top: 0;
+  bottom: 300px;
 }
 .grid.rows.collapse > .bar {
   height: 0;
@@ -573,6 +531,7 @@ html {
 .grid.rows.bottom.collapse > .content {
   height: 100%;
 }
+/* Scroll wrapper */
 .scroll-y {
   height: 100%;
   overflow-y: auto;
