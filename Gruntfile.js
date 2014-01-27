@@ -1,4 +1,7 @@
 module.exports = function(grunt) {
+    // Load Grunt tasks declared in the package.json file
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
@@ -39,11 +42,6 @@ module.exports = function(grunt) {
             }
         }
     });
-
-    // Load our tasks
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-sass');
 
     // Register our tasks
     grunt.registerTask('default', ['less']);
