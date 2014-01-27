@@ -1,18 +1,25 @@
 # Molten
 
-A fixed-fluid, full-width web application css grid.
+A fixed-fluid, full-width web application css grid. This is a fork from [Play with an Example](https://github.com/scottcorgan/molten) which adds support for IE8+.
 
 Ever wonder where all the css grids are that allow you to create **full width** and **full height** web layouts?
 
 ## Table of Contents
-* [Play with an Example](https://github.com/scottcorgan/molten#play-with-an-example)
-* [Install](https://github.com/scottcorgan/molten/blob/master/README.md#install)
-* [Basic Fixed-Fluid Grid](https://github.com/scottcorgan/molten/blob/master/README.md#basic-grid)
-* [Nesting for Complex Layouts](https://github.com/scottcorgan/molten/blob/master/README.md#nesting-for-complex-layouts)
-* [Grid Types](https://github.com/scottcorgan/molten/blob/master/README.md#grid-types)
-* [Grid Sizes](https://github.com/scottcorgan/molten/blob/master/README.md#grid-sizes)
-* [Browser Support](https://github.com/scottcorgan/molten/blob/master/README.md#browser-support)
+* [Fork specific changelog](https://github.com/joholo/molten#fork-modifications)
+* [Play with an Example](https://github.com/joholo/molten#play-with-an-example)
+* [Install](https://github.com/joholo/molten/blob/master/README.md#install)
+* [Basic Fixed-Fluid Grid](https://github.com/joholo/molten/blob/master/README.md#basic-grid)
+* [Nesting for Complex Layouts](https://github.com/joholo/molten/blob/master/README.md#nesting-for-complex-layouts)
+* [Grid Types](https://github.com/joholo/molten/blob/master/README.md#grid-types)
+* [Grid Sizes](https://github.com/joholo/molten/blob/master/README.md#grid-sizes)
+* [Browser Support](https://github.com/joholo/molten/blob/master/README.md#browser-support)
 
+## Fork modifications
+
+To support IE8 the following modifications were done
+* Remove calc() for rows calculation. Use absolute positioning instead.
+* For scrolling behaviour, added scroll-x and scroll-y which requires a wrapping div. See tests/index.html.
+* Using grunt-contrib-sass
 
 ## Play with an Example
 
@@ -54,12 +61,12 @@ Creating a basic 2 column, left sidebar grid.
 
 ```html
 <div class="grid columns split250">
-  <aside class="bar">
+  <div class="bar">
     <!-- left sidebar (250px) -->
-  </aside>
-  <section class="content">
+  </div>
+  <div class="content">
     <!-- the content (fluid) -->
-  </section>
+  </div>
 </div>
 ```
 
@@ -79,14 +86,14 @@ There is no limit to how many grids you can nest.
   <div class="content">
   
     <!-- Girdception!! -->
-    <section class="grid rows split50">
-      <aside class="bar">
+    <div class="grid rows split50">
+      <div class="bar">
         <!-- topbar (50px) -->
-      </aside>
-      <article class="content">
+      </div>
+      <div class="content">
         <!-- content (fluid) -->
-      </article>
-    </section>
+      </div>
+    </div>
     
   </div>
 </div>
@@ -190,7 +197,7 @@ Footer bar long the bottom
 * Chrome 24+
 * Firefox 19+
 * Safari 6+
-* IE 9+
+* IE 8+
 
 **Mobile**
 * Mobile Safari 6+
