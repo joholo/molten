@@ -147,13 +147,13 @@ html {
 }
 
 // functions
-@function scut-strip-unit ($num) {
+@function strip-unit ($num) {
   @return $num / ($num * 0 + 1);
 }
 
 // mixins
 @mixin column-split($width) {
-  $widthNoUnit: scut-strip-unit($width);
+  $widthNoUnit: strip-unit($width);
   .grid.columns.split#{$widthNoUnit} > .bar {
     width: $width;
   }
@@ -171,7 +171,7 @@ html {
 }
 
 @mixin row-split($height) {
-  $heightNoUnit: scut-strip-unit($height);
+  $heightNoUnit: strip-unit($height);
   .grid.rows.split#{$heightNoUnit} > .bar {
     height: $height;
     line-height: $height;
