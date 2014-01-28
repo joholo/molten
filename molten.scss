@@ -42,6 +42,10 @@ html {
 .grid > [class*="col"]:last-of-type {
   padding-right: 0;
 }
+
+// @for $col from 1 through 12 {
+//   .grid > .col#{$col} { width: 8.33% * $col; } 
+// }
 .grid > .col1 {
   width: 8.33%;
 }
@@ -122,174 +126,7 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.grid.columns.split50 > .bar {
-  width: 50px;
-}
-.grid.columns.split50 > .content {
-  padding-left: 50px;
-}
-.grid.columns.split50.right > .bar {
-  left: 100%;
-  margin-left: -50px;
-}
-.grid.columns.split50.right > .content {
-  padding-left: 0;
-  padding-right: 50px;
-}
-.grid.columns.split100 > .bar {
-  width: 100px;
-}
-.grid.columns.split100 > .content {
-  padding-left: 100px;
-}
-.grid.columns.split100.right > .bar {
-  left: 100%;
-  margin-left: -100px;
-}
-.grid.columns.split100.right > .content {
-  padding-left: 0;
-  padding-right: 100px;
-}
-.grid.columns.split150 > .bar {
-  width: 150px;
-}
-.grid.columns.split150 > .content {
-  padding-left: 150px;
-}
-.grid.columns.split150.right > .bar {
-  left: 100%;
-  margin-left: -150px;
-}
-.grid.columns.split150.right > .content {
-  padding-left: 0;
-  padding-right: 150px;
-}
-.grid.columns.split200 > .bar {
-  width: 200px;
-}
-.grid.columns.split200 > .content {
-  padding-left: 200px;
-}
-.grid.columns.split200.right > .bar {
-  left: 100%;
-  margin-left: -200px;
-}
-.grid.columns.split200.right > .content {
-  padding-left: 0;
-  padding-right: 200px;
-}
-.grid.columns.split225 > .bar {
-  width: 225px;
-}
-.grid.columns.split225 > .content {
-  padding-left: 225px;
-}
-.grid.columns.split225.right > .bar {
-  left: 100%;
-  margin-left: -225px;
-}
-.grid.columns.split225.right > .content {
-  padding-left: 0;
-  padding-right: 225px;
-}
-.grid.columns.split250 > .bar {
-  width: 250px;
-}
-.grid.columns.split250 > .content {
-  padding-left: 250px;
-}
-.grid.columns.split250.right > .bar {
-  left: 100%;
-  margin-left: -250px;
-}
-.grid.columns.split250.right > .content {
-  padding-left: 0;
-  padding-right: 250px;
-}
-.grid.columns.split275 > .bar {
-  width: 275px;
-}
-.grid.columns.split275 > .content {
-  padding-left: 275px;
-}
-.grid.columns.split275.right > .bar {
-  left: 100%;
-  margin-left: -275px;
-}
-.grid.columns.split275.right > .content {
-  padding-left: 0;
-  padding-right: 275px;
-}
-.grid.columns.split300 > .bar {
-  width: 300px;
-}
-.grid.columns.split300 > .content {
-  padding-left: 300px;
-}
-.grid.columns.split300.right > .bar {
-  left: 100%;
-  margin-left: -300px;
-}
-.grid.columns.split300.right > .content {
-  padding-left: 0;
-  padding-right: 300px;
-}
-.grid.columns.split325 > .bar {
-  width: 325px;
-}
-.grid.columns.split325 > .content {
-  padding-left: 325px;
-}
-.grid.columns.split325.right > .bar {
-  left: 100%;
-  margin-left: -325px;
-}
-.grid.columns.split325.right > .content {
-  padding-left: 0;
-  padding-right: 325px;
-}
-.grid.columns.split350 > .bar {
-  width: 350px;
-}
-.grid.columns.split350 > .content {
-  padding-left: 350px;
-}
-.grid.columns.split350.right > .bar {
-  left: 100%;
-  margin-left: -350px;
-}
-.grid.columns.split350.right > .content {
-  padding-left: 0;
-  padding-right: 350px;
-}
-.grid.columns.split375 > .bar {
-  width: 375px;
-}
-.grid.columns.split375 > .content {
-  padding-left: 375px;
-}
-.grid.columns.split375.right > .bar {
-  left: 100%;
-  margin-left: -375px;
-}
-.grid.columns.split375.right > .content {
-  padding-left: 0;
-  padding-right: 375px;
-}
-.grid.columns.split400 > .bar {
-  width: 400px;
-}
-.grid.columns.split400 > .content {
-  padding-left: 400px;
-}
-.grid.columns.split400.right > .bar {
-  left: 100%;
-  margin-left: -400px;
-}
-.grid.columns.split400.right > .content {
-  padding-left: 0;
-  padding-right: 400px;
-}
+
 .grid.columns > .bar {
   z-index: 2;
 }
@@ -308,6 +145,50 @@ html {
 .grid.columns.right.collapse > .content {
   padding-right: 0;
 }
+
+// functions
+@function scut-strip-unit ($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// mixins
+@mixin column-split($width) {
+  $widthNoUnit: scut-strip-unit($width);
+  .grid.columns.split#{$widthNoUnit} > .bar {
+    width: $width;
+  }
+  .grid.columns.split#{$widthNoUnit} > .content {
+    padding-left: $width;
+  }
+  .grid.columns.split#{$widthNoUnit}.right > .bar {
+    left: 100%;
+    margin-left: -$width;
+  }
+  .grid.columns.split#{$widthNoUnit}.right > .content {
+    padding-left: 0;
+    padding-right: $width;
+  }
+}
+
+@mixin row-split($height) {
+  $heightNoUnit: scut-strip-unit($height);
+  .grid.rows.split#{$heightNoUnit} > .bar {
+    height: $height;
+    line-height: $height;
+  }
+  .grid.rows.split#{$heightNoUnit} > .content {
+    top: $height;
+  }
+  .grid.rows.split#{$heightNoUnit}.bottom > .bar {
+    bottom: 0;
+    height: $height;
+  }
+  .grid.rows.split#{$heightNoUnit}.bottom > .content {
+    bottom: $height;
+    top: 0;
+  }
+}
+
 /* Row styles */
 .grid.rows {
   height: 100%;
@@ -321,203 +202,16 @@ html {
   top: 0;
   width: 100%;
 }
+
+.grid.rows > .content {
+  bottom: 0;
+}
+
 .grid.rows.bottom > .bar,
 .grid.rows.bottom > .content {
   top: auto;
 }
 
-.grid.rows.split10 > .bar {
-  height: 10px;
-  line-height: 10px;
-}
-.grid.rows.split10 > .content {
-    top: 10px;
-    bottom: 0;
-}
-.grid.rows.split10.bottom > .bar {
-  bottom: 0;
-  height: 10px;
-}
-.grid.rows.split10.bottom > .content {
-  top: 0;
-  bottom: 10px;
-}
-.grid.rows.split20 > .bar {
-  height: 20px;
-  line-height: 20px;
-}
-.grid.rows.split20 > .content {
-  top: 20px;
-  bottom: 0;
-}
-.grid.rows.split20.bottom > .bar {
-  bottom: 0;
-  height: 20px;
-}
-.grid.rows.split20.bottom > .content {
-  top: 0;
-  bottom: 20px;
-}
-.grid.rows.split30 > .bar {
-  height: 30px;
-  line-height: 30px;
-}
-.grid.rows.split30 > .content {
-  top: 30px;
-  bottom: 0;
-}
-.grid.rows.split30.bottom > .bar {
-  bottom: 0;
-  height: 30px;
-}
-.grid.rows.split30.bottom > .content {
-  top: 0;
-  bottom: 30px;
-}
-.grid.rows.split40 > .bar {
-  height: 40px;
-  line-height: 40px;
-}
-.grid.rows.split40 > .content {
-  top: 40px;
-  bottom: 0;
-}
-.grid.rows.split40.bottom > .bar {
-  bottom: 0;
-  height: 40px;
-}
-.grid.rows.split40.bottom > .content {
-  top: 0;
-  bottom: 40px;
-}
-.grid.rows.split50 > .bar {
-  height: 50px;
-  line-height: 50px;
-}
-.grid.rows.split50 > .content {
-  top: 50px;
-  bottom: 0;
-}
-.grid.rows.split50.bottom > .bar {
-  bottom: 0;
-  height: 50px;
-}
-.grid.rows.split50.bottom > .content {
-  top: 0;
-  bottom: 50px;
-}
-.grid.rows.split60 > .bar {
-  height: 60px;
-  line-height: 60px;
-}
-.grid.rows.split60 > .content {
-  top: 60px;
-  bottom: 0;
-}
-.grid.rows.split60.bottom > .bar {
-  bottom: 0;
-  height: 60px;
-}
-.grid.rows.split60.bottom > .content {
-  top: 0;
-  bottom: 60px;
-}
-.grid.rows.split70 > .bar {
-  height: 70px;
-  line-height: 70px;
-}
-.grid.rows.split70 > .content {
-  top: 70px;
-  bottom: 0;
-}
-.grid.rows.split70.bottom > .bar {
-  bottom: 0;
-  height: 70px;
-}
-.grid.rows.split70.bottom > .content {
-  top: 0;
-  bottom: 70px;
-}
-.grid.rows.split80 > .bar {
-  height: 80px;
-  line-height: 80px;
-}
-.grid.rows.split80 > .content {
-  top: 80px;
-  bottom: 0;
-}
-.grid.rows.split80.bottom > .bar {
-  bottom: 0;
-  height: 80px;
-}
-.grid.rows.split80.bottom > .content {
-  top: 0;
-  bottom: 80px;
-}
-.grid.rows.split90 > .bar {
-  height: 90px;
-  line-height: 90px;
-}
-.grid.rows.split90 > .content {
-  top: 90px;
-  bottom: 0;
-}
-.grid.rows.split90.bottom > .bar {
-  bottom: 0;
-  height: 90px;
-}
-.grid.rows.split90.bottom > .content {
-  top: 0;
-  bottom: 90px;
-}
-.grid.rows.split100 > .bar {
-  height: 100px;
-  line-height: 100px;
-}
-.grid.rows.split100 > .content {
-  top: 100px;
-  bottom: 0;
-}
-.grid.rows.split100.bottom > .bar {
-  bottom: 0;
-  height: 100px;
-}
-.grid.rows.split100.bottom > .content {
-  top: 0;
-  bottom: 100px;
-}
-.grid.rows.split200 > .bar {
-  height: 200px;
-  line-height: 200px;
-}
-.grid.rows.split200 > .content {
-  top: 200px;
-  bottom: 0;
-}
-.grid.rows.split200.bottom > .bar {
-  bottom: 0;
-  height: 200px;
-}
-.grid.rows.split200.bottom > .content {
-  top: 0;
-  bottom: 200px;
-}
-.grid.rows.split300 > .bar {
-  height: 300px;
-  line-height: 300px;
-}
-.grid.rows.split300 > .content {
-  top: 300px;
-  bottom: 0;
-}
-.grid.rows.split300.bottom > .bar {
-  bottom: 0;
-  height: 300px;
-}
-.grid.rows.split300.bottom > .content {
-  top: 0;
-  bottom: 300px;
-}
 .grid.rows.collapse > .bar {
   height: 0;
 }
@@ -540,3 +234,32 @@ html {
   height: 100%;
   overflow-x: auto;
 }
+
+
+// For Molten functionality
+@include column-split(50px);
+@include column-split(100px);
+@include column-split(150px);
+@include column-split(200px);
+@include column-split(225px);
+@include column-split(250px);
+@include column-split(275px);
+@include column-split(300px);
+@include column-split(325px);
+@include column-split(350px);
+@include column-split(375px);
+@include column-split(400px);
+
+// Rows for Molten functionality
+@include row-split(10px);
+@include row-split(20px);
+@include row-split(30px);
+@include row-split(40px);
+@include row-split(50px);
+@include row-split(60px);
+@include row-split(70px);
+@include row-split(80px);
+@include row-split(90px);
+@include row-split(100px);
+@include row-split(200px);
+@include row-split(300px);

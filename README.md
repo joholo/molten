@@ -1,6 +1,6 @@
 # Molten
 
-A fixed-fluid, full-width web application css grid. This is a fork from [Play with an Example](https://github.com/scottcorgan/molten) which adds support for IE8+.
+A fixed-fluid, full-width web application css grid. This fork adds support for IE8+.
 
 Ever wonder where all the css grids are that allow you to create **full width** and **full height** web layouts?
 
@@ -46,12 +46,10 @@ bower install molten --save
 <link rel="stylesheet" href="path/to/components/molten/molten.css">
 ```
 
-or **Import** - sass/scss/less
+or **Import** - sass/scss
 
 ```
 @import 'path/to/molten.scss'; - scss/sass
-
-@import 'path/to/molten.less'; - less
 ```
 
 ## Basic Grid
@@ -76,6 +74,7 @@ Creating a basic 2 column, left sidebar grid.
 **Molten** gives you classes to create grids based on columns and rows.
 You can nest rows and columns within rows and columns to help you build complex layouts.
 There is no limit to how many grids you can nest.
+To get scrollbars on overflow you need to wrap the content in a div with class scroll-y or scroll-x.
 
 ![nested-column-row-grid](https://f.cloud.github.com/assets/974723/353690/b219c26e-a088-11e2-9a21-dc14abd763b0.gif)
 
@@ -92,7 +91,9 @@ There is no limit to how many grids you can nest.
         <!-- topbar (50px) -->
       </div>
       <div class="content">
-        <!-- content (fluid) -->
+        <div class="scroll-y">
+          <!-- content (fluid) -->
+        </div>
       </div>
     </div>
     
@@ -112,7 +113,9 @@ Sidebar on the left side
     <!-- left sidebar (250px) -->
   </div>
   <div class="content">
-    <!-- the content (fluid) -->
+    <div class="scroll-x">
+      <!-- the content (fluid) -->
+    </div>
   </div>
 </div>
 ```
