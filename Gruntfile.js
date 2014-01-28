@@ -6,23 +6,6 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        less: {
-            development: {
-                files: {
-                    'molten.css': 'molten.less',
-                    'molten.scss': 'molten.less'
-                }
-            },
-            production: {
-                options: {
-                    yuicompress: true
-                },
-                files: {
-                    'molten.min.css': 'molten.less'
-                }
-            }
-        },
-
         sass: {
             main: {
                 files: {
@@ -32,10 +15,6 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            css: {
-                files: ['molten.less'],
-                tasks: ['default']
-            },
             sass: {
                 files: ['molten.scss'],
                 tasks: ['sass']
@@ -44,5 +23,5 @@ module.exports = function(grunt) {
     });
 
     // Register our tasks
-    grunt.registerTask('default', ['less']);
+    grunt.registerTask('default', ['sass']);
 };

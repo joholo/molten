@@ -17,6 +17,7 @@ Ever wonder where all the css grids are that allow you to create **full width** 
 ## Fork modifications
 
 To support IE8 the following modifications were done
+* Remove support for less
 * Remove calc() for rows calculation. Use absolute positioning instead.
 * For scrolling behaviour, added scroll-x and scroll-y which requires a wrapping div. See tests/index.html.
 * Using grunt-contrib-sass
