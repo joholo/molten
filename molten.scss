@@ -78,12 +78,6 @@ html {
 .grid > .col12 {
   width: 100%;
 }
-.grid > .col-1-4 {
-  width: 25%;
-}
-.grid > .col-3-4 {
-  width: 75%;
-}
 
 // .col-n-totals
 @mixin fluid-col($totalCols, $basePercentage) {
@@ -92,9 +86,6 @@ html {
     .grid > .col-#{$col}-#{$totalCols} { width: $basePercentage * $col; }
   }
 }
-@include fluid-col(2, 50%);
-@include fluid-col(3, 33.33%);
-@include fluid-col(5, 20%);
 
 /* Column styles */
 .grid.columns {
@@ -222,6 +213,19 @@ html {
   overflow-x: auto;
 }
 
+
+// For Molten functionality
+// - Fluid grid
+@include fluid-col(2, 50%);
+@include fluid-col(3, 33.33%);
+@include fluid-col(5, 20%);
+
+.grid > .col-1-4 {
+  width: 25%;
+}
+.grid > .col-3-4 {
+  width: 75%;
+}
 
 // For Molten functionality
 @include column-split(50px);
